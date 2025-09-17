@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Abstract Factory Pattern Demo (HTML + CSS)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Factory Switch */
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+    .tabs label {
+      padding: 10px 20px;
+      background: #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .tabs label:hover {
+      background: #ccc;
+    }
+    input[type="radio"] {
+      display: none;
+    }
+    input[type="radio"]:checked + label {
+      background: #4CAF50;
+      color: white;
+    }
+
+    /* Panels */
+    .panel {
+      display: none;
+      margin-top: 20px;
+    }
+    input#payment:checked ~ .panels .payment,
+    input#shipping:checked ~ .panels .shipping,
+    input#ride:checked ~ .panels .ride {
+      display: block;
+    }
+
+    .card {
+      padding: 15px;
+      margin: 10px 0;
+      background: #eef9f1;
+      border-left: 5px solid #4CAF50;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Abstract Factory Pattern (Visual Demo)</h1>
+  <div class="container">
+    <!-- Factory Selector -->
+    <div class="tabs">
+      <input type="radio" name="factory" id="payment" checked>
+      <label for="payment">Payment Factory</label>
+
+      <input type="radio" name="factory" id="shipping">
+      <label for="shipping">Shipping Factory</label>
+
+      <input type="radio" name="factory" id="ride">
+      <label for="ride">Ride-Hailing Factory</label>
+    </div>
+
+    <!-- Factory Panels -->
+    <div class="panels">
+      <!-- Payment Factory -->
+      <div class="panel payment">
+        <div class="card">💳 UPI Payment</div>
+        <div class="card">💰 Wallet Payment</div>
+        <div class="card">💵 Cash on Delivery</div>
+        <div class="card">💳 Credit Card Payment</div>
+      </div>
+
+      <!-- Shipping Factory -->
+      <div class="panel shipping">
+        <div class="card">📦 Standard Shipping (3-5 days)</div>
+        <div class="card">⚡ Express Shipping (1-2 days)</div>
+        <div class="card">✈️ International Shipping (7-14 days)</div>
+      </div>
+
+      <!-- Ride Factory -->
+      <div class="panel ride">
+        <div class="card">🚴 Bike Ride (Driver: Rajesh, 2 yrs exp)</div>
+        <div class="card">🛺 Auto Ride (Driver: Suresh, 5 yrs exp)</div>
+        <div class="card">🚗 Car Ride (Driver: Mahesh, 8 yrs exp)</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
